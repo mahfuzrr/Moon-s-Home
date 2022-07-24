@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+  --btn1: #27d658;
+  --btn2: #ff2626;
+  --bg: #efefef;
+  --doorBg: #924500;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+#fullBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg);
+  position: relative;
+}
+
+#door {
+  width: 20%;
+  height: 60%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+}
+
+#confatti {
+  z-index: 101;
+  display: none;
+}
+
+#open {
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  background-color: var(--btn1);
+  color: white;
+  font-size: 14px;
+}
+
+#door-front {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: left;
+  /* box-shadow: 20px 0 40px rgba(0, 0, 0, 0.2); */
+  position: absolute;
+  background-color: var(--doorBg);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+#door-front > p {
+  width: 40%;
+  margin: 5% auto 0 auto;
+  color: white;
+  outline: 1px solid white;
+  padding: 5px;
+  text-align: center;
+}
+
+#door-front:before,
+#door-front:after {
+  content: "";
+  position: absolute;
+  background-color: var(--doorBg);
+  width: 105px;
+  height: 75px;
+  border: 10px ridge #b05500;
+  left: 22.5px;
+}
+
+#door-front:before {
+  top: 25%;
+}
+
+#door-front:after {
+  top: 50%;
+}
+
+.knob {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background-color: #eeba0b;
+  top: 43%;
+  left: 55%;
+  border-radius: 2px;
+}
+
+.knob:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #f1c83c;
+  width: 18px;
+  height: 18px;
+  left: -1px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.knob:after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 7px;
+  background-color: #333;
+  top: 20px;
+  left: 8.5px;
+}
+
+/* #door:hover > #door-front {
+  transform: rotateY(-160deg);
+} */
+
+.door-back {
+  width: 100%;
+  height: 100%;
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  outline: 10px solid #718093;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#content h2 {
+  font-size: 20px;
+}
+
+#content img {
+  margin-top: 10%;
+  width: 180px;
+  height: 160px;
+  pointer-events: none;
+}
+
+#allButton {
+  width: 100%;
+  display: flex;
+  margin-top: 10%;
+  justify-content: space-around;
+}
+
+#sure {
+  background-color: var(--btn1);
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+.btn {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.btn:focus {
+  outline: none;
+  /* box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1); */
+}
+
+#sorry {
+  background-color: var(--btn2);
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+.door-mat {
+  position: relative;
+  perspective: 200px;
+}
+
+.door-mat:before {
+  content: "";
+  position: absolute;
+  width: 55%;
+  height: 60px;
+  background: repeating-linear-gradient(
+    #a8763e,
+    #a8763e 10px,
+    #9d741a 10px,
+    #9d741a 20px
+  );
+  top: 20px;
+  left: 20%;
+  outline: 5px solid #a8763e;
+  transform: rotateX(45deg);
+}
+
+/* Card Design */
+.orgCard {
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#loveCard {
+  display: none;
+}
+
+#sadCard {
+  display: none;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.card img {
+  width: 50%;
+  height: 40%;
+  margin: 10% auto 0 auto;
+}
+
+#love img {
+  width: 40%;
+}
+
+.card span {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.card p {
+  width: 100%;
+  margin-top: 7%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Responsive Design Start */
+@media only screen and (max-width: 1427px) {
+  #door {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 1230px) {
+  #door {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 953px) {
+  #door {
+    width: 35%;
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  #content h2 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  #door {
+    width: 45%;
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (max-width: 455px) {
+  #door {
+    width: 60%;
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (max-width: 398px) {
+  #door {
+    width: 65%;
+    margin-left: 0%;
+  }
+  #open {
+    top: 5%;
+    right: 30%;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  #door {
+    width: 70%;
+    margin-left: 0%;
+  }
+  .orgCard {
+    width: 320px;
+    height: 230px;
+  }
+}
+
+@media only screen and (max-width: 355px) {
+  #door {
+    width: 75%;
+    margin-left: 0%;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  #door {
+    width: 80%;
+    margin-left: 0%;
+  }
+
+  .orgCard {
+    width: 280px;
+    height: 190px;
+  }
+}
