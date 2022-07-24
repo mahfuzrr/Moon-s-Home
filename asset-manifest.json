@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Moon-s-Home/static/css/main.fea69bbe.css",
+    "main.js": "/Moon-s-Home/static/js/main.8d6fd4d3.js",
+    "static/media/4005526.png": "/Moon-s-Home/static/media/4005526.3ad5c1b447e35e079326.png",
+    "static/media/propose.png": "/Moon-s-Home/static/media/propose.9c2748b3787bffadb9a1.png",
+    "static/media/scene-vector.jpg": "/Moon-s-Home/static/media/scene-vector.fea92f2d531726e65246.jpg",
+    "index.html": "/Moon-s-Home/index.html",
+    "main.fea69bbe.css.map": "/Moon-s-Home/static/css/main.fea69bbe.css.map",
+    "main.8d6fd4d3.js.map": "/Moon-s-Home/static/js/main.8d6fd4d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fea69bbe.css",
+    "static/js/main.8d6fd4d3.js"
+  ]
+}
