@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 import sad from '../assets/4005526.png';
@@ -13,12 +14,12 @@ export default function OpenDoor(){
     const [windowDimension, setWindow] = useState({width: window.innerWidth, height: window.innerHeight});
 
     const sendEmail = (message) =>{
-        // emailjs.send('service_3slibuj', 'template_rq21i7h', message, 'E5Hjv5ZIrh_a82gVg')
-        // .then(function(response) {
-        //    console.log('SUCCESS!', response.status, response.text);
-        // }, function(error) {
-        //    console.log('FAILED...', error);
-        // });
+        emailjs.send('service_3slibuj', 'template_rq21i7h', message, 'E5Hjv5ZIrh_a82gVg')
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+            console.log('FAILED...', error);
+        });
     }
     
     const handleSure = () =>{
@@ -33,7 +34,6 @@ export default function OpenDoor(){
         
         sendEmail(params);
     }
-
 
     const handleSorry = () =>{
         setSorry(!sorry);
@@ -65,17 +65,25 @@ export default function OpenDoor(){
         const sorryId = document.getElementById('sadCard');
         const loveId = document.getElementById('loveCard');
         const confatti = document.getElementById('confatti');
+        const backDoor = document.getElementById('backDoor');
 
         if(doorInit)doorId.style.transform = 'rotateY(-160deg)';
         else doorId.style.transform = 'rotateY(0deg)';
         
-        if(sorry)sorryId.style.display = 'block';
+        if(sorry)
+        {
+            sorryId.style.display = 'block';
+            doorId.style.filter = 'blur(8px)';
+            backDoor.style.filter = 'blur(8px)';
+        }
         else sorryId.style.display = 'none';
 
         if(sure)
         {
             loveId.style.display = 'block';
             confatti.style.display = 'block';
+            doorId.style.filter = 'blur(8px)';
+            backDoor.style.filter = 'blur(8px)';
         }
         else loveId.style.display = 'none';
 
@@ -84,6 +92,8 @@ export default function OpenDoor(){
             sorryId.style.display = 'none';
             loveId.style.display = 'none';
             confatti.style.display = 'none';
+            doorId.style.filter = 'blur(0px)';
+            backDoor.style.filter = 'blur(0px)';
         }
 
         window.addEventListener('resize', detectSize);
@@ -102,7 +112,7 @@ export default function OpenDoor(){
                 <div className="card" id="love">
                     <span><i className="fa-solid fa-xmark" onClick={handleClose}></i></span>
                     <img src={hug} alt="Couple-Goal"/>
-                    <p>Sending Love and Tight Hug</p>
+                    <p>Sending Love and Tight Hug 💜</p>
                 </div>
             </div>
 
@@ -110,7 +120,7 @@ export default function OpenDoor(){
                 <div className="card" id="sad">
                     <span><i className="fa-solid fa-xmark" onClick={handleClose}></i></span>
                     <img src={sad} alt="Sad Boy"/>
-                    <p>Sorry, to hear that! You will always be my best friend</p>
+                    <p>Sorry, to hear that! You will always be my best friend🖤</p>
                 </div>
             </div>
 
@@ -119,7 +129,7 @@ export default function OpenDoor(){
                     <p>Moon's Home</p>
                     <div className="knob"></div>
                 </div>
-                <div className="door-back">
+                <div className="door-back" id="backDoor">
                     <div className="container-fluid" id="content">
 
                         <h2>Will you be Mine?</h2>
@@ -133,6 +143,9 @@ export default function OpenDoor(){
                 </div>
                 <div className="door-mat"></div>
             </div>
+
+            <span id="footer">© By <a href='https://web.facebook.com/m.maahfuz' target="_blank" rel="noreferrer">Mahfuzur Rahman</a></span>
+
     </div>
     );
 }

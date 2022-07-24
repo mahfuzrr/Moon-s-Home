@@ -51,7 +51,6 @@
   height: 100%;
   overflow: hidden;
   transform-origin: left;
-  /* box-shadow: 20px 0 40px rgba(0, 0, 0, 0.2); */
   position: absolute;
   background-color: var(--doorBg);
   z-index: 1;
@@ -61,10 +60,12 @@
 #door-front > p {
   width: 40%;
   margin: 5% auto 0 auto;
-  color: white;
-  outline: 1px solid white;
+  color: black;
+  border-bottom: 1px solid white;
   padding: 5px;
   text-align: center;
+  font-size: 14px;
+  user-select: none;
 }
 
 #door-front:before,
@@ -116,10 +117,6 @@
   top: 20px;
   left: 8.5px;
 }
-
-/* #door:hover > #door-front {
-  transform: rotateY(-160deg);
-} */
 
 .door-back {
   width: 100%;
@@ -173,7 +170,6 @@
 
 .btn:focus {
   outline: none;
-  /* box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1); */
 }
 
 #sorry {
@@ -212,7 +208,8 @@
   height: 250px;
   z-index: 100;
   background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 #loveCard {
@@ -231,10 +228,21 @@
   padding: 10px;
 }
 
+.card span {
+  background-color: #ff2626;
+  padding: 1px 8px;
+  border-radius: 50%;
+}
+
+.card span i {
+  color: white;
+}
+
 .card img {
   width: 50%;
   height: 40%;
   margin: 10% auto 0 auto;
+  pointer-events: none;
 }
 
 #love img {
@@ -256,6 +264,20 @@
   font-weight: 500;
 }
 
+#footer {
+  position: absolute;
+  bottom: 2%;
+  font-size: 14px;
+}
+
+#footer a {
+  font-size: 14px;
+  color: black;
+}
+
+#rain {
+  display: none;
+}
 /* Responsive Design Start */
 @media only screen and (max-width: 1427px) {
   #door {
